@@ -27,6 +27,12 @@ body {
    
 }
 
+h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.5rem; /* adjust as needed */
+  font-weight: normal;
+}
+
 .form-container {
   margin: 0 auto 30px;
   display: grid;
