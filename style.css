@@ -1,0 +1,64 @@
+body {
+    font-family: 'Georgia', serif;
+    margin: 20px;
+    text-align: center;
+}
+
+.form-container {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin: 5px 0;
+}
+
+input {
+    width: 60%;
+    padding: 5px;
+    margin-top: 3px;
+}
+
+.preview-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.label {
+    border: 2px solid black;
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+}
+
+.subtitle {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.decor-line {
+    border: none;
+    border-top: 2px solid gray;
+    margin: 10px 0;
+}
+
+.pairings {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.pair {
+    font-weight: bold;
+}
+
+.wine {
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+.bottom-pair {
+    margin-top: 15px;
+}
