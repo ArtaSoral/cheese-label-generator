@@ -1,80 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Label Generator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Label Generator</title>
 
-  <!-- Optional web fallbacks so the picker looks consistent if local fonts aren't installed -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,700;6..96,800&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- [FONT FALLBACKS] Optional web fallbacks for consistency across devices.
+         Remove these two lines if you want to rely ONLY on local system fonts. -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,700;6..96,800&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
-<body> <!-- no font class needed; script updates a CSS variable instead -->
+<body class="font-bodoni"><!-- [FONT DEFAULT] Start with Bodoni MT stack -->
 
 <h1>Cheese Label Generator</h1>
 
 <div class="form-container">
-  <!-- [FONT PICKER] -->
-  <label>Font:
-    <select id="fontSelect">
-      <option value="bodoni">Bodoni MT</option>
-      <option value="garamond">Garamond</option>
-      <option value="baskerville">Baskerville Old Face</option>
-    </select>
-  </label>
+    <!-- [FONT UI] New dropdown to choose fonts -->
+    <label>Font:
+      <select id="fontSelect">
+        <option value="bodoni">Bodoni MT</option>
+        <option value="garamond">Garamond</option>
+        <option value="baskerville">Baskerville Old Face</option>
+      </select>
+    </label>
 
-  <label>Title: <input type="text" id="title" value="Havarti"></label>
-  <label>Subtitle: <input type="text" id="subtitle" value="Creamy & mellow, with a buttery finish"></label>
+    <label>Title: <input type="text" id="title" value="Havarti"></label>
+    <label>Subtitle: <input type="text" id="subtitle" value="Creamy & mellow, with a buttery finish"></label>
 
-  <label>Left Pairing: <input type="text" id="leftPair" value="Olive Oil + Basil"></label>
-  <label>Left Wine: <input type="text" id="leftWine" value="Sauvignon Blanc"></label>
+    <label>Left Pairing: <input type="text" id="leftPair" value="Olive Oil + Basil"></label>
+    <label>Left Wine: <input type="text" id="leftWine" value="Sauvignon Blanc"></label>
 
-  <label>Right Pairing: <input type="text" id="rightPair" value="Arrabbiata Sauce"></label>
-  <label>Right Wine: <input type="text" id="rightWine" value="Sauvignon Blanc"></label>
+    <label>Right Pairing: <input type="text" id="rightPair" value="Arrabbiata Sauce"></label>
+    <label>Right Wine: <input type="text" id="rightWine" value="Sauvignon Blanc"></label>
 
-  <label>Bottom Pairing: <input type="text" id="bottomPair" value="Mango Peach Jam"></label>
-  <label>Bottom Wine: <input type="text" id="bottomWine" value="Pinot Noir"></label>
+    <label>Bottom Pairing: <input type="text" id="bottomPair" value="Mango Peach Jam"></label>
+    <label>Bottom Wine: <input type="text" id="bottomWine" value="Pinot Noir"></label>
 
-  <button id="printBtn">Print / Save PDF</button>
+    <button id="printBtn">Print / Save PDF</button>
 </div>
 
 <div class="preview-container" id="printArea">
-  <div class="label">
-    <h2 id="previewTitle">Havarti</h2>
-    <p class="subtitle" id="previewSubtitle">Creamy &amp; mellow, with a buttery finish</p>
+    <div class="label">
+        <h2 id="previewTitle">Havarti</h2>
+        <p class="subtitle" id="previewSubtitle">Creamy &amp; mellow, with a buttery finish</p>
 
-    <!-- Leafy ornament -->
-    <div class="ornament" aria-hidden="true">
-      <svg viewBox="0 0 400 24" preserveAspectRatio="xMidYMid meet">
-        <path d="M5 12 H395" fill="none" stroke="currentColor" stroke-width="1"/>
-        <g>
-          <path d="M200 12 l-18 8 6-8-6-8z" fill="currentColor"/>
-          <path d="M180 12 l-14 8 5-8-5-8z" fill="currentColor"/>
-          <path d="M220 12 l18 8-6-8 6-8z" fill="currentColor"/>
-          <path d="M240 12 l14 8-5-8 5-8z" fill="currentColor"/>
-        </g>
-      </svg>
-    </div>
+        <!-- [ORNAMENT] Using leafy ornament divider -->
+        <div class="ornament" aria-hidden="true">
+          <svg viewBox="0 0 400 24" preserveAspectRatio="xMidYMid meet">
+            <path d="M5 12 H395" fill="none" stroke="currentColor" stroke-width="1"/>
+            <g>
+              <path d="M200 12 l-18 8 6-8-6-8z" fill="currentColor"/>
+              <path d="M180 12 l-14 8 5-8-5-8z" fill="currentColor"/>
+              <path d="M220 12 l18 8-6-8 6-8z" fill="currentColor"/>
+              <path d="M240 12 l14 8-5-8 5-8z" fill="currentColor"/>
+            </g>
+          </svg>
+        </div>
 
-    <div class="pairings">
-      <div>
-        <p class="pair" id="previewLeftPair">Olive Oil + Basil</p>
-        <p class="wine" id="previewLeftWine">Sauvignon Blanc</p>
-      </div>
-      <div>
-        <p class="pair" id="previewRightPair">Arrabbiata Sauce</p>
-        <p class="wine" id="previewRightWine">Sauvignon Blanc</p>
-      </div>
+        <div class="pairings">
+            <div>
+                <p class="pair" id="previewLeftPair">Olive Oil + Basil</p>
+                <p class="wine" id="previewLeftWine">Sauvignon Blanc</p>
+            </div>
+            <div>
+                <p class="pair" id="previewRightPair">Arrabbiata Sauce</p>
+                <p class="wine" id="previewRightWine">Sauvignon Blanc</p>
+            </div>
+        </div>
+        <div class="bottom-pair">
+            <p class="pair" id="previewBottomPair">Mango Peach Jam</p>
+            <p class="wine" id="previewBottomWine">Pinot Noir</p>
+        </div>
     </div>
-    <div class="bottom-pair">
-      <p class="pair" id="previewBottomPair">Mango Peach Jam</p>
-      <p class="wine" id="previewBottomWine">Pinot Noir</p>
-    </div>
-  </div>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
+
