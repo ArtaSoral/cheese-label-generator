@@ -31,7 +31,8 @@ updatePreview();
    ========================= */
 /* [FONT UI HOOK] Switch body class to apply font stacks (see style.css). We also persist choice. */
 const fontSelect = document.getElementById("fontSelect");
-const bodyEl = document.body;
+//const bodyEl = document.body;
+const labelEl = document.querySelector(".label");
 
 // Available classes map
 const FONT_CLASS = {
@@ -49,6 +50,13 @@ const FONT_CLASS = {
 })();
 
 function setFont(key) {
+  if (!labelEl) return;
+  Object.values(FONT_CLASS).forEach(cls => labelEl.classList.remove(cls));
+  labelEl.classList.add(FONT_CLASS[key] || FONT_CLASS.bodoni);
+   try { localStorage.setItem("label_font", key); } catch {}
+}
+   /*
+function setFont(key) {
   // remove any previously applied font class
   Object.values(FONT_CLASS).forEach(cls => bodyEl.classList.remove(cls));
   // add the requested one
@@ -56,6 +64,8 @@ function setFont(key) {
   // persist
   try { localStorage.setItem("label_font", key); } catch {}
 }
+*/
+
 
 // Handle user changes
 fontSelect?.addEventListener("change", (e) => {

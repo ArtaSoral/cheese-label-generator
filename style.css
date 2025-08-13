@@ -5,22 +5,25 @@
 /* [FONT CLASSES] Font-family stacks with local target + web fallback + generic serif */
 
 
-.font-times {
+.label.font-times {
   font-family: "Times New Roman", Times, serif;
 }
-.font-bodoni {
+.label.font-bodoni {
   font-family: "Bodoni MT", "Bodoni 72", "Bodoni Moda", Didot, Georgia, serif;
 }
-.font-garamond {
+.label.font-garamond {
   font-family: "Garamond", "EB Garamond", Georgia, serif;
 }
-.font-baskerville {
+.label.font-baskerville {
   font-family: "Baskerville Old Face", "Libre Baskerville", Baskerville, "Times New Roman", serif;
 }
 
+.label, .label * { font-family: inherit; }
+
+
 /* base layout */
 body {
-  font-family: "Times New Roman"
+  font-family: Calibri, "Helvetica Neue", Arial, sans-serif;
   margin: 20px;
   text-align: center;
   color: #111;
