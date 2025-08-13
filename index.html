@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Label Generator</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- [FONT CHANGE] Add Bodoni Moda as a web fallback to Bodoni MT -->
+    <!-- If you want ONLY Bodoni MT, remove the two lines below. -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700;6..96,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -29,8 +35,21 @@
 <div class="preview-container" id="printArea">
     <div class="label">
         <h2 id="previewTitle">Havarti</h2>
-        <p class="subtitle" id="previewSubtitle">Creamy & mellow, with a buttery finish</p>
-        <hr class="decor-line">
+        <p class="subtitle" id="previewSubtitle">Creamy &amp; mellow, with a buttery finish</p>
+
+        <!-- [ORNAMENT CHANGE] Replace the simple <hr> with the leafy SVG ornament -->
+        <div class="ornament" aria-hidden="true">
+          <svg viewBox="0 0 400 24" preserveAspectRatio="xMidYMid meet">
+            <path d="M5 12 H395" fill="none" stroke="currentColor" stroke-width="1"/>
+            <g>
+              <path d="M200 12 l-18 8 6-8-6-8z" fill="currentColor"/>
+              <path d="M180 12 l-14 8 5-8-5-8z" fill="currentColor"/>
+              <path d="M220 12 l18 8-6-8 6-8z" fill="currentColor"/>
+              <path d="M240 12 l14 8-5-8 5-8z" fill="currentColor"/>
+            </g>
+          </svg>
+        </div>
+
         <div class="pairings">
             <div>
                 <p class="pair" id="previewLeftPair">Olive Oil + Basil</p>
