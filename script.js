@@ -1,5 +1,5 @@
 /* =========================
-   Live preview (unchanged)
+   LIVE PREVIEW (unchanged behavior)
    ========================= */
 function updatePreview() {
   document.getElementById("previewTitle").textContent = document.getElementById("title").value;
@@ -18,36 +18,45 @@ function updatePreview() {
 document.querySelectorAll("input").forEach(input => {
   input.addEventListener("input", updatePreview);
 });
-document.getElementById("printBtn").addEventListener("click", () => window.print());
+
+document.getElementById("printBtn").addEventListener("click", () => {
+  window.print();
+});
+
+// Initialize preview
 updatePreview();
 
 /* =========================
-   Font dropdown logic
-   Uses a CSS variable (--ff) so changes apply instantly everywhere.
+   FONT DROPDOWN LOGIC
    ========================= */
+/* [FONT UI HOOK] Switch body class to apply font stacks (see style.css). We also persist choice. */
 const fontSelect = document.getElementById("fontSelect");
+const bodyEl = document.body;
 
-// Map dropdown values to complete font stacks.
-// First is the local target (if installed), followed by a visually close web fallback.
-const FONT_STACKS = {
-  bodoni: `"Bodoni MT", "Bodoni 72", "Bodoni Moda", Didot, Georgia, serif`,
-  garamond: `"Garamond", "EB Garamond", Georgia, serif`,
-  baskerville: `"Baskerville Old Face", "Libre Baskerville", Baskerville, "Times New Roman", serif`,
+// Available classes map
+const FONT_CLASS = {
+  bodoni: "font-bodoni",
+  garamond: "font-garamond",
+  baskerville: "font-baskerville",
 };
 
-// Apply font by updating :root variable
-function applyFont(key) {
-  const stack = FONT_STACKS[key] || FONT_STACKS.bodoni;
-  document.documentElement.style.setProperty("--ff", stack);
+// Restore saved font on load (default to 'bodoni')
+(function restoreFont() {
+  const saved = localStorage.getItem("label_font") || "bodoni";
+  setFont(saved);
+  if (fontSelect) fontSelect.value = saved;
+})();
+
+function setFont(key) {
+  // remove any previously applied font class
+  Object.values(FONT_CLASS).forEach(cls => bodyEl.classList.remove(cls));
+  // add the requested one
+  bodyEl.classList.add(FONT_CLASS[key] || FONT_CLASS.bodoni);
+  // persist
   try { localStorage.setItem("label_font", key); } catch {}
 }
 
-// Restore saved choice on load
-(function initFont() {
-  const saved = localStorage.getItem("label_font") || "bodoni";
-  if (fontSelect) fontSelect.value = saved;
-  applyFont(saved);
-})();
-
-// Handle changes
-fontSelect?.addEventListener("change", (e) => applyFont(e.target.value));
+// Handle user changes
+fontSelect?.addEventListener("change", (e) => {
+  setFont(e.target.value);
+});
