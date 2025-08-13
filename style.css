@@ -3,6 +3,11 @@
    ========================= */
 
 /* [FONT CLASSES] Font-family stacks with local target + web fallback + generic serif */
+
+
+.font-times {
+  font-family: "Times New Roman", Times, serif;
+}
 .font-bodoni {
   font-family: "Bodoni MT", "Bodoni 72", "Bodoni Moda", Didot, Georgia, serif;
 }
