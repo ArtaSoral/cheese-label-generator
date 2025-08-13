@@ -1,25 +1,20 @@
-/* =========================
-   GLOBAL / TYPOGRAPHY
-   ========================= */
-
-/* [FONT CLASSES] Font-family stacks with local target + web fallback + generic serif */
-.font-bodoni {
-  font-family: "Bodoni MT", "Bodoni 72", "Bodoni Moda", Didot, Georgia, serif;
-}
-.font-garamond {
-  font-family: "Garamond", "EB Garamond", Georgia, serif;
-}
-.font-baskerville {
-  font-family: "Baskerville Old Face", "Libre Baskerville", Baskerville, "Times New Roman", serif;
+/* ========== FONT CONTROL ==========
+   We drive the entire page font with a CSS variable (--ff).
+   JS updates --ff based on the dropdown selection.
+*/
+:root{
+  --ff: "Bodoni MT", "Bodoni 72", "Bodoni Moda", Didot, Georgia, serif; /* default */
 }
 
-/* base layout */
+/* Base */
 body {
+  font-family: var(--ff); /* <— uses the variable */
   margin: 20px;
   text-align: center;
   color: #111;
 }
 
+/* Form */
 .form-container {
   margin: 0 auto 30px;
   display: grid;
@@ -27,47 +22,42 @@ body {
   gap: .6rem .8rem;
   max-width: 980px;
 }
-
 label {
   display: grid;
   gap: .25rem;
   text-align: left;
   font-weight: 600;
 }
-
 input, select {
   width: 100%;
   padding: .45rem .55rem;
   border: 1px solid #bbb;
   border-radius: 6px;
-  font: inherit;
+  font: inherit; /* inherits the chosen font */
 }
 
+/* Preview */
 .preview-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-/* =========================
-   LABEL CARD
-   ========================= */
+/* Label card */
 .label {
-  /* [BORDER: OUTER LINE] */
+  /* Double-line border */
   border: 2px solid #000;
   padding: 20px;
   width: 400px;
   text-align: center;
-  position: relative; /* needed for inner border */
+  position: relative;
   background: #fff;
 }
-
-/* [BORDER: INNER LINE] Creates the double-line border effect */
 .label::after {
   content: "";
   position: absolute;
-  inset: 8px;            /* gap between the two lines */
-  border: 1px solid #000;
+  inset: 8px;             /* gap between lines */
+  border: 1px solid #000; /* inner line */
   pointer-events: none;
 }
 
@@ -83,11 +73,8 @@ input, select {
   margin: 0 0 .6rem;
 }
 
-/* =========================
-   ORNAMENT DIVIDER
-   ========================= */
+/* Leafy ornament */
 .ornament {
-  /* [ORNAMENT] Leafy divider style */
   width: 85%;
   margin: .3rem auto .9rem;
   color: #777; /* svg uses currentColor */
@@ -98,9 +85,7 @@ input, select {
   display: block;
 }
 
-/* =========================
-   PAIRINGS
-   ========================= */
+/* Pairings */
 .pairings {
   position: relative;
   display: grid;
@@ -109,8 +94,6 @@ input, select {
   align-items: start;
   margin-top: .2rem;
 }
-
-/* vertical line between top columns */
 .pairings::before {
   content: "";
   position: absolute;
@@ -122,7 +105,6 @@ input, select {
   opacity: .85;
   transform: translateX(-0.5px);
 }
-
 .pairings > div:first-child { text-align: left; }
 .pairings > div:last-child  { text-align: right; }
 
@@ -131,7 +113,6 @@ input, select {
   margin: 0;
   font-size: 1.15rem;
 }
-
 .wine {
   font-style: italic;
   font-size: 0.95rem;
@@ -143,9 +124,7 @@ input, select {
   text-align: center;
 }
 
-/* =========================
-   PRINT
-   ========================= */
+/* Print */
 @media print {
   @page { margin: 0.25in; }
   body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
