@@ -38,6 +38,7 @@ const FONT_CLASS = {
   bodoni: "font-bodoni",
   garamond: "font-garamond",
   baskerville: "font-baskerville",
+  times: "font-times" 
 };
 
 // Restore saved font on load (default to 'bodoni')
