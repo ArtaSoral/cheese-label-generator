@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Label Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Cheese Label Generator</h1>
+
+<div class="form-container">
+    <label>Title: <input type="text" id="title" value="Havarti"></label>
+    <label>Subtitle: <input type="text" id="subtitle" value="Creamy & mellow, with a buttery finish"></label>
+
+    <label>Left Pairing: <input type="text" id="leftPair" value="Olive Oil + Basil"></label>
+    <label>Left Wine: <input type="text" id="leftWine" value="Sauvignon Blanc"></label>
+
+    <label>Right Pairing: <input type="text" id="rightPair" value="Arrabbiata Sauce"></label>
+    <label>Right Wine: <input type="text" id="rightWine" value="Sauvignon Blanc"></label>
+
+    <label>Bottom Pairing: <input type="text" id="bottomPair" value="Mango Peach Jam"></label>
+    <label>Bottom Wine: <input type="text" id="bottomWine" value="Pinot Noir"></label>
+
+    <button id="printBtn">Print / Save PDF</button>
+</div>
+
+<div class="preview-container" id="printArea">
+    <div class="label">
+        <h2 id="previewTitle">Havarti</h2>
+        <p class="subtitle" id="previewSubtitle">Creamy & mellow, with a buttery finish</p>
+        <hr class="decor-line">
+        <div class="pairings">
+            <div>
+                <p class="pair" id="previewLeftPair">Olive Oil + Basil</p>
+                <p class="wine" id="previewLeftWine">Sauvignon Blanc</p>
+            </div>
+            <div>
+                <p class="pair" id="previewRightPair">Arrabbiata Sauce</p>
+                <p class="wine" id="previewRightWine">Sauvignon Blanc</p>
+            </div>
+        </div>
+        <div class="bottom-pair">
+            <p class="pair" id="previewBottomPair">Mango Peach Jam</p>
+            <p class="wine" id="previewBottomWine">Pinot Noir</p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
