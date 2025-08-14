@@ -74,17 +74,15 @@ function setFont(key) {
 function setSelectFontAppearance(key) {
   if (!fontSelect) return;
   fontSelect.style.fontFamily = FONT_STACK[key] || FONT_STACK.garamond;
+  
+  // Adjust font size for fonts that render larger
+  if (key === 'bodoni' || key === 'baskerville') {
+    fontSelect.style.fontSize = '0.85rem';
+  } else {
+    fontSelect.style.fontSize = '0.9rem';
+  }
 }
-   /*
-function setFont(key) {
-  // remove any previously applied font class
-  Object.values(FONT_CLASS).forEach(cls => bodyEl.classList.remove(cls));
-  // add the requested one
-  bodyEl.classList.add(FONT_CLASS[key] || FONT_CLASS.bodoni);
-  // persist
-  try { localStorage.setItem("label_font", key); } catch {}
-}
-*/
+
 
 
 // Handle user changes

@@ -34,7 +34,9 @@ body {
 /* Font preview for each option in the font dropdown */
 #fontSelect {
   height: 2rem; /* fixed height to prevent jumping */
-  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
 }
 
 #fontSelect option {
