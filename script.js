@@ -32,7 +32,6 @@ updatePreview();
    ========================= */
 /* [FONT UI HOOK] Switch body class to apply font stacks (see style.css). We also persist choice. */
 const fontSelect = document.getElementById("fontSelect");
-//const bodyEl = document.body;
 const labelEl = document.querySelector(".label");
 const labelInnerEl = document.querySelector(".label .label-inner");
 
@@ -71,16 +70,11 @@ function setFont(key) {
    fitLabel();
 }
 
+
 function setSelectFontAppearance(key) {
   if (!fontSelect) return;
   fontSelect.style.fontFamily = FONT_STACK[key] || FONT_STACK.garamond;
-  
-  // Adjust font size for fonts that render larger
-  if (key === 'bodoni' || key === 'baskerville') {
-    fontSelect.style.fontSize = '0.85rem';
-  } else {
-    fontSelect.style.fontSize = '0.9rem';
-  }
+  fontSelect.style.fontSize = '0.9rem'
 }
 
 
