@@ -27,6 +27,7 @@ body {
   margin: 20px;
   text-align: center;
   color: #111;
+  background-color: #f6f5f1;
    
 }
 
@@ -45,17 +46,18 @@ h1 {
 }
 
 label {
-  display: grid;
+  display: flex;
   gap: .25rem;
-  text-align: left;
-  font-weight: 600;
+  text-align: center;
+  font-weight: 400;
+  align-items: center;
 }
 
 input, select {
   width: 100%;
   padding: .45rem .55rem;
   border: 1px solid #bbb;
-  border-radius: 6px;
+  border-radius: 10px;
   font: inherit;
 }
 
