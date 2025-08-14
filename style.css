@@ -31,6 +31,20 @@ body {
    
 }
 
+/* Font preview for each option in the font dropdown */
+#fontSelect option[value="bodoni"] {
+  font-family: "Bodoni MT", "Bodoni 72", "Bodoni Moda", Didot, Georgia, serif;
+}
+#fontSelect option[value="garamond"] {
+  font-family: "Garamond", "EB Garamond", Georgia, serif;
+}
+#fontSelect option[value="baskerville"] {
+  font-family: "Baskerville Old Face", "Libre Baskerville", Baskerville, "Times New Roman", serif;
+}
+#fontSelect option[value="times"] {
+  font-family: "Times New Roman", Times, serif;
+}
+
 h1 {
   font-family: "Great Vibes", cursive;
   font-size: 2.5rem; /* adjust as needed */
@@ -40,7 +54,6 @@ h1 {
 .form-container {
   margin: 0 auto 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: .6rem .8rem;
   max-width: 980px;
 }
@@ -51,6 +64,27 @@ label {
   text-align: center;
   font-weight: 400;
   align-items: center;
+}
+
+/* Pairing input groups to mirror label layout */
+.pairing-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "left right"
+    "bottom bottom";
+  column-gap: 2rem;
+  row-gap: .6rem;
+  align-items: start;
+}
+.pairing-groups .group { display: grid; gap: .4rem; }
+.pairing-groups .group-left { grid-area: left; }
+.pairing-groups .group-right { grid-area: right; }
+.pairing-groups .group-bottom {
+  grid-area: bottom;
+  justify-self: center;
+  margin-top: .4rem; /* sit slightly lower than the top groups */
+  width: min(520px, 100%);
 }
 
 input, select {
@@ -67,17 +101,33 @@ input, select {
   margin-top: 20px;
 }
 
+.print-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.print-controls #printBtn {
+  margin-top: 14px;
+}
+
 /* =========================
    LABEL CARD
    ========================= */
 .label {
   /* [BORDER: OUTER LINE] */
+  box-sizing: border-box;
   border: 2px solid #000;
   padding: 20px;
   width: 400px;
+  height: 200px;
   text-align: center;
   position: relative; /* needed for inner border */
   background: #fff;
+  overflow: hidden; /* prevent bleed when scaling */
+}
+
+.label-inner {
+  transform-origin: top center;
 }
 
 /* [BORDER: INNER LINE] Creates the double-line border effect */
@@ -167,5 +217,5 @@ input, select {
 @media print {
   @page { margin: 0.25in; }
   body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .form-container, h1 { display: none; }
+  .form-container, h1, .print-controls { display: none; }
 }
