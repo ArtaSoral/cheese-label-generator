@@ -32,14 +32,27 @@ body {
 }
 
 /* Font preview for each option in the font dropdown */
+#fontSelect {
+  height: 2rem; /* fixed height to prevent jumping */
+  line-height: 1.2;
+}
+
+#fontSelect option {
+  font-size: 0.9rem; /* smaller base size for options */
+  line-height: 1.2;
+  padding: 0.2rem 0.4rem;
+}
+
 #fontSelect option[value="bodoni"] {
   font-family: "Bodoni MT", "Bodoni 72", "Bodoni Moda", Didot, Georgia, serif;
+  font-size: 0.85rem; /* slightly smaller for Bodoni */
 }
 #fontSelect option[value="garamond"] {
   font-family: "Garamond", "EB Garamond", Georgia, serif;
 }
 #fontSelect option[value="baskerville"] {
   font-family: "Baskerville Old Face", "Libre Baskerville", Baskerville, "Times New Roman", serif;
+  font-size: 0.85rem; /* slightly smaller for Baskerville */
 }
 #fontSelect option[value="times"] {
   font-family: "Times New Roman", Times, serif;
